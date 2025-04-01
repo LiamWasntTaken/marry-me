@@ -1,9 +1,8 @@
 const papers = document.querySelectorAll(".paper");
 
 papers.forEach(paper => {
-    // Function to start dragging
     function startDrag(event) {
-        event.preventDefault(); // Prevents unwanted behavior
+        event.preventDefault(); // Prevent default actions (like scrolling)
 
         let startX, startY;
 
@@ -18,11 +17,13 @@ papers.forEach(paper => {
             startX = touch.clientX - paper.getBoundingClientRect().left;
             startY = touch.clientY - paper.getBoundingClientRect().top;
 
-            document.addEventListener("touchmove", moveDrag);
+            document.addEventListener("touchmove", moveDrag, { passive: false });
             document.addEventListener("touchend", stopDrag);
         }
 
         function moveDrag(event) {
+            event.preventDefault(); // Prevent scrolling
+
             let pageX, pageY;
 
             if (event.type === "mousemove") {
@@ -47,7 +48,6 @@ papers.forEach(paper => {
         }
     }
 
-    // Attach events for both mouse and touch
     paper.addEventListener("mousedown", startDrag);
-    paper.addEventListener("touchstart", startDrag);
+    paper.addEventListener("touchstart", startDrag, { passive: false });
 });
