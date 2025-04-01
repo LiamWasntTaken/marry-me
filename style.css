@@ -1,0 +1,54 @@
+body {
+    font-family: 'Short Stack', cursive;
+    background: #fce4ec;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+.paper {
+    width: 300px;
+    height: 200px;
+    background: #fff;
+    padding: 20px;
+    margin: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+    position: absolute;
+}
+
+.paper img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.paper.heart {
+    background: red;
+    width: 150px;
+    height: 150px;
+    clip-path: polygon(50% 0%, 100% 35%, 100% 80%, 50% 100%, 0% 80%, 0% 35%);
+    position: absolute;
+    animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.paper.red {
+    background: #ff5252;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+}
+]
